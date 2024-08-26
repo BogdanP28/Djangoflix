@@ -47,6 +47,9 @@ class Video(models.Model):
     def is_published(self):
         return self.active
     
+    def get_playlist_ids(self):
+        return list(self.playlist_featured.all().values_list('id', flat=True)) #type: ignore
+    
     # def save(self, *args, **kwargs):
     #     # Overwrite original safe
     #     if self.state == self.VideoStateOptions.PUBLISH and self.publish_timestamp is None:
