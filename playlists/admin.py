@@ -17,7 +17,7 @@ class MovieProxyAdmin(admin.ModelAdmin):
     class Meta:
         model = MovieProxy
         
-    def get_queryset(self, request) -> BaseManager[MovieProxy]:
+    def get_queryset(self, request) -> PlaylistQuerySet:
         return MovieProxy.objects.all()
     
 admin.site.register(MovieProxy, MovieProxyAdmin)
